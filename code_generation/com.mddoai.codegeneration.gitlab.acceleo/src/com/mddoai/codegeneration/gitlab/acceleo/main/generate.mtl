@@ -13,6 +13,7 @@
 # For more information, visit: https://mddoai.com
 #######################################################################
 
+[generateWorkflow(aPipeline.workflow)/]
 [generateStages(aPipeline.stages)/]
 [generateVariables(aPipeline.variables)/]
 [if (aPipeline.jobs->notEmpty())]
@@ -22,6 +23,20 @@
 [/if]
 [/file]
 [/template]
+
+[template public generateWorkflow(workflow : Workflow)]
+[if (workflow <> null and workflow.rules-> notEmpty())]
+workflow:
+  rules:
+[for (r: Rule_ | workflow.rules)]
+    - if: [r.if_/]
+[if (r.when <> null)]
+      when: [r.when/]
+[/if]
+[/for]
+[/if]
+[/template]
+
 [template public generateStages(stages : OrderedSet(String))]
 stages:
 [for (stage: String | stages)]

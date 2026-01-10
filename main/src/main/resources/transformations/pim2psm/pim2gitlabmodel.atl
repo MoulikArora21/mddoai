@@ -10,6 +10,7 @@ rule Pipeline2GitlabPipeline {
         source : PIM!Pipeline
     to
         target : GitLabMM!Pipeline (
+        	workflow <- thisModule.createWorkflow(),
             stages <- source.stages->collect(stage | stage.name),
             jobs <- source.stages->collect(stage | thisModule.createJobFromStage(stage)),
             variables <- if thisModule.shouldHaveVariables(source) then
@@ -34,7 +35,7 @@ lazy rule createVariables {
         vars : GitLabMM!Variables (
             variables <- Sequence {
                 thisModule.createVariable('IMAGE_NAME', '${CI_REGISTRY_IMAGE}/chatbot-app-image'),
-                thisModule.createVariable('IMAGE_TAG', '${IMAGE_NAME}:${IMAGE_VERSION}')
+                thisModule.createVariable('IMAGE_TAG', '${IMAGE_NAME}:${IMAGE_VERSION}-${CI_COMMIT_REF_SLUG}')
             }
         )
 }
@@ -72,12 +73,7 @@ lazy rule createJobFromStage {
                 endif,
             image <- thisModule.getImageForStage(stage),
             tags <- thisModule.createTags(stage),
-            only <- if stage.name = 'push' then
-						thisModule.createOnly(stage)
-					else			
-						OclUndefined
-					endif,
-			
+            only <- OclUndefined,			
             dependencies <- if stage.name = 'healthCheck' then
                     thisModule.createDependencies(stage, 'build')
                 else if stage.name = 'push' then
@@ -221,6 +217,32 @@ lazy rule createReports {
             junit <- thisModule.getJUnitReportPath(stage)
         )
 }
+
+
+lazy rule createWorkflow {
+	from 
+		s : String
+	to
+		workflow : GitLabMM!Workflow (
+			rules <- Sequence{
+				thisModule.createRule('$CI_PIPELINE_SOURCE == "parent_pipeline"', OclUndefined),
+				thisModule.createRule('$CI_COMMIT_BRANCH', OclUndefined)
+			}
+		
+		)
+}
+
+lazy rule createRule {
+	from
+		ifCondition : String,
+		whenCondition : String
+	to 
+		rule_ : GitLabMM!Rule_ (
+			if_ <- ifCondition,
+			when <- whenCondition
+		)
+}
+
 
 -- Helper to determine if a stage should have artifacts
 helper def : hasArtifacts(stage : PIM!Stage) : Boolean =
