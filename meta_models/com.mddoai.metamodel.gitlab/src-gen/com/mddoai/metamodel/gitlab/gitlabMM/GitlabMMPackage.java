@@ -94,13 +94,22 @@ public interface GitlabMMPackage extends EPackage {
 	int PIPELINE__VARIABLES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Workflow</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIPELINE__WORKFLOW = 3;
+
+	/**
 	 * The number of structural features of the '<em>Pipeline</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIPELINE_FEATURE_COUNT = 3;
+	int PIPELINE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Pipeline</em>' class.
@@ -775,6 +784,89 @@ public interface GitlabMMPackage extends EPackage {
 	int PATH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link com.mddoai.metamodel.gitlab.gitlabMM.impl.Rule_Impl <em>Rule </em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.impl.Rule_Impl
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.impl.GitlabMMPackageImpl#getRule_()
+	 * @generated
+	 */
+	int RULE_ = 16;
+
+	/**
+	 * The feature id for the '<em><b>If </b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE___IF_ = 0;
+
+	/**
+	 * The feature id for the '<em><b>When</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE___WHEN = 1;
+
+	/**
+	 * The number of structural features of the '<em>Rule </em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Rule </em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RULE__OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link com.mddoai.metamodel.gitlab.gitlabMM.impl.WorkflowImpl <em>Workflow</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.impl.WorkflowImpl
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.impl.GitlabMMPackageImpl#getWorkflow()
+	 * @generated
+	 */
+	int WORKFLOW = 17;
+
+	/**
+	 * The feature id for the '<em><b>Rules</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKFLOW__RULES = 0;
+
+	/**
+	 * The number of structural features of the '<em>Workflow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKFLOW_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Workflow</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORKFLOW_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link com.mddoai.metamodel.gitlab.gitlabMM.Pipeline <em>Pipeline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -816,6 +908,17 @@ public interface GitlabMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPipeline_Variables();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link com.mddoai.metamodel.gitlab.gitlabMM.Pipeline#getWorkflow <em>Workflow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Workflow</em>'.
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.Pipeline#getWorkflow()
+	 * @see #getPipeline()
+	 * @generated
+	 */
+	EReference getPipeline_Workflow();
 
 	/**
 	 * Returns the meta object for class '{@link com.mddoai.metamodel.gitlab.gitlabMM.Job <em>Job</em>}'.
@@ -1265,6 +1368,59 @@ public interface GitlabMMPackage extends EPackage {
 	EAttribute getPath_Path();
 
 	/**
+	 * Returns the meta object for class '{@link com.mddoai.metamodel.gitlab.gitlabMM.Rule_ <em>Rule </em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rule </em>'.
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.Rule_
+	 * @generated
+	 */
+	EClass getRule_();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mddoai.metamodel.gitlab.gitlabMM.Rule_#getIf_ <em>If </em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>If </em>'.
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.Rule_#getIf_()
+	 * @see #getRule_()
+	 * @generated
+	 */
+	EAttribute getRule__If_();
+
+	/**
+	 * Returns the meta object for the attribute '{@link com.mddoai.metamodel.gitlab.gitlabMM.Rule_#getWhen <em>When</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>When</em>'.
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.Rule_#getWhen()
+	 * @see #getRule_()
+	 * @generated
+	 */
+	EAttribute getRule__When();
+
+	/**
+	 * Returns the meta object for class '{@link com.mddoai.metamodel.gitlab.gitlabMM.Workflow <em>Workflow</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Workflow</em>'.
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.Workflow
+	 * @generated
+	 */
+	EClass getWorkflow();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link com.mddoai.metamodel.gitlab.gitlabMM.Workflow#getRules <em>Rules</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rules</em>'.
+	 * @see com.mddoai.metamodel.gitlab.gitlabMM.Workflow#getRules()
+	 * @see #getWorkflow()
+	 * @generated
+	 */
+	EReference getWorkflow_Rules();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1320,6 +1476,14 @@ public interface GitlabMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PIPELINE__VARIABLES = eINSTANCE.getPipeline_Variables();
+
+		/**
+		 * The meta object literal for the '<em><b>Workflow</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PIPELINE__WORKFLOW = eINSTANCE.getPipeline_Workflow();
 
 		/**
 		 * The meta object literal for the '{@link com.mddoai.metamodel.gitlab.gitlabMM.impl.JobImpl <em>Job</em>}' class.
@@ -1686,6 +1850,50 @@ public interface GitlabMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PATH__PATH = eINSTANCE.getPath_Path();
+
+		/**
+		 * The meta object literal for the '{@link com.mddoai.metamodel.gitlab.gitlabMM.impl.Rule_Impl <em>Rule </em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mddoai.metamodel.gitlab.gitlabMM.impl.Rule_Impl
+		 * @see com.mddoai.metamodel.gitlab.gitlabMM.impl.GitlabMMPackageImpl#getRule_()
+		 * @generated
+		 */
+		EClass RULE_ = eINSTANCE.getRule_();
+
+		/**
+		 * The meta object literal for the '<em><b>If </b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE___IF_ = eINSTANCE.getRule__If_();
+
+		/**
+		 * The meta object literal for the '<em><b>When</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RULE___WHEN = eINSTANCE.getRule__When();
+
+		/**
+		 * The meta object literal for the '{@link com.mddoai.metamodel.gitlab.gitlabMM.impl.WorkflowImpl <em>Workflow</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see com.mddoai.metamodel.gitlab.gitlabMM.impl.WorkflowImpl
+		 * @see com.mddoai.metamodel.gitlab.gitlabMM.impl.GitlabMMPackageImpl#getWorkflow()
+		 * @generated
+		 */
+		EClass WORKFLOW = eINSTANCE.getWorkflow();
+
+		/**
+		 * The meta object literal for the '<em><b>Rules</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference WORKFLOW__RULES = eINSTANCE.getWorkflow_Rules();
 
 	}
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.mddoai.feature_1.0.0.202510171458.jar" id="com.mddoai.feature" version="1.0.0.202510171458">
+   <feature url="features/com.mddoai.feature_1.0.0.202601102314.jar" id="com.mddoai.feature" version="1.0.0.202601102314">
       <category name="MDDOAI"/>
    </feature>
    <category-def name="MDDOAI" label="MDDOAI"/>
