@@ -21,12 +21,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="beforeScript" eType="#//BeforeScript"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="image" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tags" eType="#//Tags" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="only" eType="#//Only" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" eType="#//Dependencies"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="when" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//Image"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifact">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="when" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -92,7 +92,31 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//Rule_" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Image"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Image">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="entrypoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="docker" eType="#//Docker"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kubernetes" eType="#//Kubernetes"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pull_policy" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service"/>
   <eClassifiers xsi:type="ecore:EClass" name="Cache"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Docker">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="platform" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Kubernetes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="user"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Services">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="docker" eType="#//Docker"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kubernetes" eType="#//Kubernetes"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute"/>
+  </eClassifiers>
 </ecore:EPackage>
