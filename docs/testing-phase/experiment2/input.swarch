@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swarch:SoftwareArchitecture xmi:version="2.0"
+  xmlns:xmi="http://www.omg.org/XMI"
+  xmlns:swarch="http://www.mddoai.com/mddoai/metamodel/swarch"
+  name="go-microservice"
+  type="framework"
+  build_system="docker"
+  language="go"
+  unit_test="go test ./..."
+  health_check="./scripts/health_check.sh"
+  lint_check="golangci-lint run"/>

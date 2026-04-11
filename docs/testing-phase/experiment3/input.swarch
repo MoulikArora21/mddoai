@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<swarch:SoftwareArchitecture xmi:version="2.0"
+  xmlns:xmi="http://www.omg.org/XMI"
+  xmlns:swarch="http://www.mddoai.com/mddoai/metamodel/swarch"
+  name="spring-boot-api"
+  type="jar"
+  build_system="maven"
+  language="java"
+  unit_test="true"
+  health_check=""
+  lint_check="true"/>
